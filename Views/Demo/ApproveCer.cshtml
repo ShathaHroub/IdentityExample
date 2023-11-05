@@ -1,0 +1,16 @@
+﻿@model Identitynext2.Models.ViewModel.CertificateViewModel
+
+@{
+    ViewData["Title"] = "ApproveCer";
+}
+
+<h1> Are you sure to approve @Model.CertificateName ? </h1>
+
+<form asp-action="ApproveCer" method="post">
+
+    <button type="submit">Approve </button>
+
+    <a asp-action="PendingCer">Cancel</a>
+
+
+</form>

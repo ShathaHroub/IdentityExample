@@ -1,0 +1,14 @@
+﻿@model Microsoft.AspNetCore.Identity.IdentityRole
+@{
+    ViewData["Title"] = "DeleteRole";
+}
+
+<h1>Are you sure to delete @Model.Name ?</h1>
+
+<form method="post" asp-action="DeleteRole">
+
+    @Html.HiddenFor(x => x.Id)
+    <input type="submit" value="Delete" class="btn btn-danger" />
+    <a asp-action="RolesList" class="btn btn-warning"> Back to list </a>
+
+</form>

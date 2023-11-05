@@ -1,0 +1,37 @@
+﻿@using Microsoft.AspNetCore.Identity;
+@model IEnumerable<Identitynext2.Models.ViewModel.CertificateViewModel>
+@inject UserManager<IdentityUser> _userManager
+
+@{
+    ViewData["Title"] = "Certificates";
+}
+
+<h1>Certificates</h1>
+@if (User.IsInRole("Bio"))
+{
+    <a asp-action="CreateCer" class="btn btn-primary"> Create a new certificate </a>
+}
+
+
+<table class="table table-bordered">
+
+    <tr>
+        <th> @Html.DisplayNameFor(x => x.CertificateName)</></th>
+        <th> @Html.DisplayNameFor(x => x.CertificateComp)</></th>
+        <th> @Html.DisplayNameFor(x => x.IssueDate)</></th>
+        <th> @Html.DisplayNameFor(x => x.Status)</th>
+    </tr>
+  
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td> @item.CertificateName</td>
+            <td> @item.CertificateComp</td>
+            <td> @item.IssueDate</td>
+            <td> @item.Status</td>
+
+        </tr>
+    }
+
+
+</table>

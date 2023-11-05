@@ -1,0 +1,62 @@
+﻿@model Identitynext2.Models.ViewModel.EditRoleViewModel
+
+@{
+    ViewData["Title"] = "EditRole";
+}
+
+<h1>EditRole</h1>
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="EditRole">
+            <div asp-validation-summary="All" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="RoleId" class="control-label"></label>
+                <input asp-for="RoleId" readonly class="form-control" />
+                <span asp-validation-for="RoleId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="RoleName" class="control-label"></label>
+                <input asp-for="RoleName" class="form-control" />
+                <span asp-validation-for="RoleName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+                <a asp-action="RolesList">Cancel </a>
+
+            </div>
+        </form>
+    </div>
+</div>
+<br />
+<div class="card">
+      <div class="card-header">
+
+          Users in this role 
+
+      </div>
+    <div class="card-body">
+        @if (Model.Users.Any())
+        {
+            @foreach (var user in Model.Users)
+            {
+                <span>@user</span> <br />
+            }
+        } else
+        {
+            <div> No users in this role </div>
+        }
+
+
+    </div>
+    <div class="card-footer">
+
+        <a asp-action="UserRole" asp-route-id="@Model.RoleId" class="btn btn-primary">Add/Remove User</a>
+    </div>
+
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

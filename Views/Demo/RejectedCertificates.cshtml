@@ -1,0 +1,30 @@
+﻿@model IEnumerable<Identitynext2.Models.ViewModel.CertificateViewModel>
+
+@{
+    ViewData["Title"] = "RejectedCertificates";
+}
+
+<h1>RejectedCertificates</h1>
+
+<table class="table table-bordered">
+
+    <tr>
+        <th> @Html.DisplayNameFor(x => x.CertificateName)</></th>
+        <th> @Html.DisplayNameFor(x => x.CertificateComp)</></th>
+        <th> @Html.DisplayNameFor(x => x.IssueDate)</></th>
+        <th> @Html.DisplayNameFor(x => x.Status)</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td> @item.CertificateName</td>
+            <td> @item.CertificateComp</td>
+            <td> @item.IssueDate</td>
+            <td> @item.Status</td>
+
+        </tr>
+    }
+
+
+</table>
